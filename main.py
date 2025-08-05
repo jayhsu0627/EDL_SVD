@@ -1269,7 +1269,6 @@ def main():
         
         # Save the normalized depth image as 8-bit
         depth_8bit_image = Image.fromarray(depth_8bit)
-        # depth_8bit_image.save("/fs/nexus-scratch/sjxu/svd-temporal-controlnet/depth_8bit.png")
         print('depth shape,', depth_8bit_image.size)
         return depth_8bit_image
 

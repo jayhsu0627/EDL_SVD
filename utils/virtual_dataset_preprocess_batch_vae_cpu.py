@@ -171,7 +171,7 @@ if __name__ == "__main__":
     num = 1
     size = 128
 
-    dataset = SyncDataset(preprocessed_dir="/home/sjxu/outputs/quick", max_frames=14)
+    dataset = SyncDataset(preprocessed_dir="~/outputs/quick", max_frames=14)
 
     # Test loading a batch
     index_i = np.random.randint(0, num)
@@ -213,49 +213,12 @@ if __name__ == "__main__":
 
 
     print(mask.shape)
-    save_array_as_image(input[0]*255, "/home/sjxu/outputs/input_1.png")
-    save_array_as_image(depth[0]*255, "/home/sjxu/outputs/depth_01.png")
-    save_array_as_image(nrm[0]*255, "/home/sjxu/outputs/normal_01.png")
-    save_array_as_image(alb[0]*255, "/home/sjxu/outputs/alb_01.png")
-    save_array_as_image(mask[0]*255, "/home/sjxu/outputs/scb_01.png")
-    save_array_as_image(rgb[0]*255, "/home/sjxu/outputs/rgb.png")
+    save_array_as_image(input[0]*255, "~/outputs/input_1.png")
+    save_array_as_image(depth[0]*255, "~/outputs/depth_01.png")
+    save_array_as_image(nrm[0]*255, "~/outputs/normal_01.png")
+    save_array_as_image(alb[0]*255, "~/outputs/alb_01.png")
+    save_array_as_image(mask[0]*255, "~/outputs/scb_01.png")
+    save_array_as_image(rgb[0]*255, "~/outputs/rgb.png")
 
-    # save_generated_images(mask, "/home/sjxu/outputs/sync/scb_01.png", "rec")
-
-    # pixel_values = (pixel_values+1)/2
-    # depth_pixel_values = (depth_pixel_values+1)/2
-    # normal_pixel_values = (normal_pixel_values+1)/2
-    # alb_pixel_values = (alb_pixel_values+1)/2
-    # scb_pixel_values = (scb_pixel_values+1)/2
-    # rgb_pixel_values = (rgb_pixel_values+1)/2
-
-
-    # save_array_as_image(pixel_values[0]*255, "~/DiffusionMaskRelight/outputs/sync/relit_01.png")
-    # save_array_as_image(pixel_values[5]*255, "~/DiffusionMaskRelight/outputs/sync/relit_06.png")
-    # save_array_as_image(pixel_values[-1]*255, "~/DiffusionMaskRelight/outputs/sync/relit_16.png")
-
-    # save_array_as_image_depth(depth_pixel_values[0]*255, "~/DiffusionMaskRelight/outputs/sync/dep_01.png")
-    # save_array_as_image_depth(depth_pixel_values[5]*255, "~/DiffusionMaskRelight/outputs/sync/dep_06.png")
-    # save_array_as_image_depth(depth_pixel_values[-1]*255, "~/DiffusionMaskRelight/outputs/sync/dep_16.png")
-    
-    # save_array_as_image(normal_pixel_values[0]*255, "~/DiffusionMaskRelight/outputs/sync/nrm_01.png") 
-    # save_array_as_image(normal_pixel_values[5]*255, "~/DiffusionMaskRelight/outputs/sync/nrm_06.png") 
-    # save_array_as_image(normal_pixel_values[-1]*255, "~/DiffusionMaskRelight/outputs/sync/nrm_16.png")
-
-    # save_array_as_image(alb_pixel_values[0]*255, "~/DiffusionMaskRelight/outputs/sync/alb_01.png")
-    # save_array_as_image(alb_pixel_values[5]*255, "~/DiffusionMaskRelight/outputs/sync/alb_06.png")
-    # save_array_as_image(alb_pixel_values[-1]*255, "~/DiffusionMaskRelight/outputs/sync/alb_16.png")
-
-    # save_array_as_image_depth(scb_pixel_values[0]*255, "~/DiffusionMaskRelight/outputs/sync/scb_01.png")
-    # save_array_as_image_depth(scb_pixel_values[5]*255, "~/DiffusionMaskRelight/outputs/sync/scb_06.png")
-    # save_array_as_image_depth(scb_pixel_values[-1]*255, "~/DiffusionMaskRelight/outputs/sync/scb_16.png")
-
-    # save_array_as_image(rgb_pixel_values[0]*255, "~/DiffusionMaskRelight/outputs/sync/rgb_01.png")
-    # save_array_as_image(rgb_pixel_values[5]*255, "~/DiffusionMaskRelight/outputs/sync/rgb_06.png")
-    # save_array_as_image(rgb_pixel_values[-1]*255, "~/DiffusionMaskRelight/outputs/sync/rgb_16.png")
-
-    # save_array_as_image(rgb_pixel_values[15]*255, "~/DiffusionMaskRelight/outputs/sync/rgb_16.png")
-
-    # save_array_as_image(rgb_pixel_values[-1]*255, "~/DiffusionMaskRelight/outputs/sync/shd_16.png")
-
+  
     print('done')

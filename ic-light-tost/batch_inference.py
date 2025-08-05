@@ -301,4 +301,3 @@ def parse_args():
 if __name__ == '__main__':
     args = parse_args()
     batch_relight(args.data)
-# python batch_inference.py --data /fs/nexus-scratch/sjxu/scriblit/dataset/paper_bike/prompt.json

@@ -541,7 +541,6 @@ class UNetSpatioTemporalConditionModel(ModelMixin, ConfigMixin, UNet2DConditionL
         
         # print(emb.shape)
         # print(encoder_hidden_states.shape)
-        # visualize_tensors(emb, encoder_hidden_states, t=timestep, output_dir='/fs/nexus-scratch/sjxu/DiffusionMaskRelight/latents')
 
         # ===== added part =====
 

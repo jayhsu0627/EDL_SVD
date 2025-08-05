@@ -57,10 +57,6 @@ class UNetSpatioTemporalConditionMaskModel(UNetSpatioTemporalConditionModel):
         # encoder_hidden_states: [batch, frames, channels] -> [batch * frames, 1, channels]
         encoder_hidden_states = encoder_hidden_states.flatten(0, 1).unsqueeze(1)
 
-        # print(emb.shape)
-        # print(encoder_hidden_states.shape)
-        # visualize_tensors(emb, encoder_hidden_states, t=timestep, output_dir='/fs/nexus-scratch/sjxu/DepthCrafter/latents')
-
         # 2. pre-process
         sample = sample.to(dtype=self.conv_in.weight.dtype)
         assert sample.dtype == self.conv_in.weight.dtype, (

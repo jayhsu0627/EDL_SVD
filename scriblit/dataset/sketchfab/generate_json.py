@@ -13,7 +13,7 @@ prompt_text_list = [
     "Subdued industrial bathroom: terrazzo walls and exposed wood beams above hardwood floors. A long dark-stone vanity holds twin sinks beneath unlit mirrors, with a succulent and toiletry bottles between. To the right, a freestanding tub under a shuttered window and a potted plant. A deep-blue wave-pattern rug lies underfoot, faucets and countertop.",
     "Softly lit patient room with two white beds featuring orange rails under half-drawn blinds. A wooden nightstand holds a small lamp beside an IV pole and tray. Opposite, wood-paneled cabinets flank a recessed sink. A metal chair and sofa bench display plush toys."]
 
-with open("/fs/nexus-scratch/sjxu/scriblit/dataset/sketchfab/output.json", "w") as out:
+with open("~/scriblit/dataset/sketchfab/output.json", "w") as out:
     for prompt_i, base in enumerate(base_ids):
         for r in range(1, 61):
             folder = f"{base}_r_{r:02d}"
