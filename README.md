@@ -1,7 +1,7 @@
 # AAAI-26 submission 2539: Event-Driven Lighting for Immersive Attention Guidance with Video Diffusion Model
 
 <p align='center'>
-<a href='https://quantum-whisper.github.io/'>Project Website</a> | <a href='https://anonymous.4open.science/r/EDL_SVD-2539/'>Data</a> | <a href='https://anonymous.4open.science/r/EDL_SVD-2539'>Code</a> | <a href='src/Relighting_Project_AAAI26_final.pdf'>Paper</a>
+<a href='https://quantum-whisper.github.io/'>Project Website</a> | <a href='https://drive.google.com/file/d/1q0oehmY9sd2lfk-19CBtwWqB8ikhAoVr/view?usp=sharing'>Data</a> | <a href='https://anonymous.4open.science/r/EDL_SVD-2539'>Code</a> | <a href='src/Relighting_Project_AAAI26_final.pdf'>Paper</a>
 </p>
 
 <p align="center">
@@ -39,35 +39,33 @@ conda activate DiffLight
 
 ### Download Pretrained Models and Data
 
-1. **Pretrained Models**: Download from Google Drive link [PLACEHOLDER_LINK]
+1. **Pretrained Models**: Download from Google Drive link `https://drive.google.com/file/d/1JiUcIVJ5vJsc04OAcrDFHOSEjNQho_fN/view?usp=sharing`
    - Extract to appropriate model directories as specified in training commands
 
-2. **Preprocessed Data**: 
-   - Currently available at: `/YOUR_DIR/svd_relight/sketchfab/rendering_pp`
-   - For reproduction, download from [PLACEHOLDER_LINK]
+2. **Data**: 
+   - Currently available at: `https://drive.google.com/file/d/1q0oehmY9sd2lfk-19CBtwWqB8ikhAoVr/view?usp=sharing`
 
 ### Data Structure
 The preprocessed data should follow this structure:
-```
-data/
-├── train/
-│   ├── scene1/
-│   │   ├── RGB0000.png
-│   │   ├── albedo0000.png
-│   │   ├── normal0000.png
-│   │   ├── depth0000.png
-│   │   ├── mask0000.png
-│   │   └── relight0000.png
-│   └── ...
-└── test/
-    └── [similar structure]
-```
+
+rendering_pp/
+├── scene1/
+│   ├── colors_000.png
+│   ├── diffuse_000.png
+│   ├── normals_000.png
+│   ├── depth_000.png
+│   ├── mask_000.png
+│   ├── mask_000.png
+│   ├── relit_000.png
+│   ├── infer128_0000.png
+│   └── infer512_0000.png
+└── ...
 
 ## Model Training
 
 ### Multi-GPU Training Command
 
-Use the following command to train the model on 8 GPUs:
+Use the following command to train the model:
 
 ```bash
 CUDA_VISIBLE_DEVICES=0,1,2,3 accelerate launch --multi_gpu train_svd_relight_syn.py \
@@ -91,40 +89,22 @@ CUDA_VISIBLE_DEVICES=0,1,2,3 accelerate launch --multi_gpu train_svd_relight_syn
   --height=512
 ```
 
-### Training Configuration
-
-- **Model**: Stable Video Diffusion (SVD) fine-tuned for relighting
-- **Input Resolution**: 512×512
-- **Batch Size**: 2 per GPU × 8 GPUs × 8 gradient accumulation = effective batch size of 128
-- **Learning Rate**: 1e-4 with cosine restarts scheduler
-- **Training Duration**: 5000 epochs
-- **Mixed Precision**: FP16 for memory efficiency
-
-### Monitoring Training
-
-- Training progress is logged to Weights & Biases (wandb)
-- Checkpoints are saved every 500 steps
-- Validation runs every 100 steps
-
 ## Evaluation
 
 We provide three evaluation scripts for different model comparisons:
 
 ### 1. EDL (Our Method) Evaluation
 ```bash
-cd ~/EDL_SVD
 python evaluate_edl.py
 ```
 
 ### 2. IC-Light Baseline Evaluation
 ```bash
-cd ~/EDL_SVD
 python evaluate_iclight.py
 ```
 
 ### 3. ScribbleLight Baseline Evaluation
 ```bash
-cd ~/EDL_SVD
 python evaluate_scribble.py
 ```
 
